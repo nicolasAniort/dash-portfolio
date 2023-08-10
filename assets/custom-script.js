@@ -1,0 +1,1 @@
+alert('Si vous lisez cette  alerte, c"est que le script javascript fonctionne!')

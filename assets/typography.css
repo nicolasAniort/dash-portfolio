@@ -1,0 +1,16 @@
+body {
+    font-family: sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: hotpink
+}
+.nameTitle H2{
+    color: #333333;
+}
+.fname {
+    font-size:2 em;
+    color: #333333;
+}
+.name {
+    font-size:2.5em
+}
