@@ -1,5 +1,4 @@
 import dash
-import pandas
 from dash import dcc
 from dash import html
 from dash.dependencies import Input, Output
@@ -16,6 +15,7 @@ app.index_string = '''
         {%favicon%}
         {%css%}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link rel="stylesheet" href="./assets/styles.css">
     </head>
     <body>
         {%app_entry%}
@@ -30,26 +30,24 @@ app.index_string = '''
 
 # Styles
 app.layout = html.Div(
-    [
-        html.Div(
-    [
-        html.Img(src='assets\img\profil.jpg', className='profile-image'),
-        #html.H2('ANIORT NICOLAS'),
-        html.P('Développeur python indépendant',className ='job'),
-        html.Div(
-            [
-                dcc.Link('Résumé', href='#resume', className='menu-item'),
-                dcc.Link('Formations', href='#education', className='menu-item'),
-                dcc.Link('Compétences', href='#skills', className='menu-item'),
-                dcc.Link('Projets', href='#projects', className='menu-item'),
-                dcc.Link('Langues', href='#languages', className='menu-item'),
-                dcc.Link('Un peu + sur moi', href='#about', className='menu-item')
-            ],
-            className='menu'
-        ),
-    ],
-    className='sidebar'
-),
+                [
+                    html.Div(
+                        [
+                            html.Img(src='assets\img\profil.jpg', className='profile-image'),
+                            html.P('Développeur python indépendant',className ='job'),
+                            html.Div(
+                                [
+                                    dcc.Link('Résumé', href='#resume', className='menu-item'),
+                                    dcc.Link('Formations', href='#education', className='menu-item'),
+                                    dcc.Link('Compétences', href='#skills', className='menu-item'),
+                                    dcc.Link('Projets', href='#projects', className='menu-item'),
+                                    dcc.Link('Langues', href='#languages', className='menu-item')
+                                ],
+                                className='menu'
+                            ),
+                        ],
+                        className='sidebar'
+                    ),
 
         html.Div(
             [
@@ -98,7 +96,7 @@ app.layout = html.Div(
                     [
                         html.H2([
                             html.I(className='fa fa-graduation-cap'),  # Ajoutez l'icône ici
-                            'Formations'
+                            ' Formations'
                         ], id='education'),
                         html.P('DEVELOPPEUR D\'APPLICATION PYTHON - OPENCLASSROOMS - 2023'),
                         html.P('ANALYSTE-DEVELOPPEUR J2EE - IPST- CNAM-TOULOUSE - 2008'),
@@ -111,7 +109,7 @@ app.layout = html.Div(
                     [
                         html.H2([
                             html.I(className='fa fa-list-check'),  # Ajoutez l'icône ici
-                            'Compétences'
+                            ' Compétences'
                         ], id='skills'),
                              html.Table(
                                 [
@@ -173,14 +171,78 @@ app.layout = html.Div(
                     ],
                     className='content-section'
                 ),
+                #SECTION PROJET------------------------
                 html.Section(
                     [
                         html.H2([
-                                html.I(className='fa fa-graduation-cap'),  # Ajoutez l'icône ici
-                                'Projets'
+                                html.I(className='fa fa-diagram-project'),  # Ajoutez l'icône ici
+                                ' Projets'
                                 ], id='projects'),
-                        html.P('Vos projets ici.')
-                    ],
+                                html.Div(
+                                [
+                                    # Premier bloc projet---------------------------------
+                                    html.Div(
+                                        [
+                                            html.Img(src='assets\img\/vignetteP2.png', className='project-image'),
+                                            html.H3('Application de Scrapping'),
+                                            html.P('création d\'une application locale permettant le scrapping depuis le site Book to Scrape')
+                                        ],
+                                        className='project-block'
+                                    ),
+                                    
+                                    # Deuxième bloc projet- -------------------------------
+                                    html.Div(
+                                        [
+                                            html.Img(src='assets\img\justStreamit.png', className='project-image'),
+                                            html.H3('JustStreamIt'),
+                                            html.P('création d\'une interface utilisateur pour une application web Python')
+                                        ],
+                                        className='project-block'
+                                    ),
+                                    
+                                    # Troisieme bloc projet---------------------------------
+                                    html.Div(
+                                        [
+                                            html.Img(src='assets\img\/vignetteP7.png', className='project-image'),
+                                            html.H3('ALGOINVEST&TRADE'),
+                                            html.P('Réalisation d\'un algorithme optimisé pour le trading')
+                                        ],
+                                        className='project-block'
+                                    ),
+                                    
+                                    # Quatrieme bloc projet---------------------------------
+                                    html.Div(
+                                        [
+                                            html.Img(src='assets\img\gestion_echec.png', className='project-image'),
+                                            html.H3('Outil de gestion de tournoi d\'échec'),
+                                            html.P('Développement d\'un programme logiciel en Python')
+                                        ],
+                                        className='project-block'
+                                    ),
+                                    
+                                    # Cinquieme bloc projet---------------------------------
+                                    html.Div(
+                                        [
+                                            html.Img(src='assets\img\morpion.png', className='project-image'),
+                                            html.H3('Jeu du morpion'),
+                                            html.P('Developpement d\'un jeu du morpion en Python')
+                                        ],
+                                        className='project-block'
+                                    ),
+                                    
+                                    # Sixiéme bloc projet---------------------------------
+                                    html.Div(
+                                        [
+                                            html.Img(src='assets\img\dash_cv_template.png', className='project-image'),
+                                            html.H3('Template CV -Framework Dash'),
+                                            html.P('Réalisation d\'un template de CV avec le Framework Dash de Python.')
+                                        ],
+                                        className='project-block'
+                                    ),# Ajoutez d'autres blocs projet ici
+                                ],
+                        className='project-container'
+                    )
+                ],
                     className='content-section'
                 ),
                 html.Section(
@@ -189,20 +251,12 @@ app.layout = html.Div(
                                 html.I(className='fa fa-graduation-cap'),  # Ajoutez l'icône ici
                                 'Langues'
                                 ], id='languages'),
-                        html.P('Vos langues ici.')
+                        html.P('Francais - Langue natale'),
+                        html.P('Anglais - Niveau B2')
                     ],
                     className='content-section'
                 ),
-                html.Section(
-                    [
-                        html.H2([
-                                html.I(className='fa fa-graduation-cap'),  # Ajoutez l'icône ici
-                                'Un peu + sur moi'
-                                ], id='about'),
-                        html.P('Informations additionnelles sur vous.')
-                    ],
-                    className='content-section'
-                ),
+                
             ],
             className='content'
         )
