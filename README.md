@@ -19,7 +19,8 @@ Ce projet consiste en un template de CV interactif réalisé en utilisant le Fra
 
 ```bash
 git clone 
-cd dash-folio```
+cd dash-folio 
+```
 
 1. Installez les dépendances requises en utilisant la commande suivante :
 
